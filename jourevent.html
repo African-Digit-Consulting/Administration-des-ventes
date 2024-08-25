@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav-ico.png">
+    <title>LES GRANDS MOULINS D'ABIDJAN</title>
+    <!-- Custom CSS -->
+    <link href="assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+    <link href="assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <link href="assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    <link href="dist/css/bulma.min.css" rel="stylesheet">
+    <link href="dist/css/bulma-rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body> 
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="d-flex justify-content-center align-items-center vh-100">
+            <div class="logo-container text-center">
+                <img src="assets/images/GMA logo.jpg" style="width: 350px;" alt="Logo" class="logo">
+              </div>
+              <div class="loading-text text-center text-truncate font-weight-medium">Chargement<span class="dots">...</span></div>
+        </div>
+    </div> 
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-brand d-flex justify-content-center mt-4">
+                        <!-- Logo icon -->
+                        <a href="index.html">
+                            <b class="logo-icon">
+                                <!-- Dark Logo icon -->
+                                <img src="assets/images/GMA logo.jpg" style="width:120px" alt="homepage" class="dark-logo" />
+                                <!-- Light Logo icon -->
+                                <img src="assets/images/GMA logo.jpg" style="width:120px" alt="homepage" class="light-logo" />
+                            </b>
+                            <!--End Logo icon -->
+                        </a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                        data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                            class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
+                        <!-- Notification -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)"
+                                id="bell" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span><i data-feather="bell" class="svg-icon"></i></span>
+                                <span class="badge badge-warning notify-no rounded-circle">5</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left mailbox animated bounceInDown">
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="message-center notifications position-relative">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)"
+                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                                <span class="btn btn-success text-white rounded-circle btn-circle"><i
+                                                        data-feather="calendar" class="text-white"></i></span>
+                                                <div class="w-75 d-inline-block v-middle pl-2">
+                                                    <h6 class="message-title mb-0 mt-1">Mes occupations d'aujourd'hui</h6>
+                                                    <span class="font-12 text-nowrap d-block text-muted text-truncate">Juste un rappel que vous avez <br> un rendez vous</span>
+                                                    <span class="font-12 text-nowrap d-block text-muted">9h10min</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)"
+                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                                <span class="btn btn-info rounded-circle btn-circle"><i
+                                                        data-feather="settings" class="text-white"></i></span>
+                                                <div class="w-75 d-inline-block v-middle pl-2">
+                                                    <h6 class="message-title mb-0 mt-1">Paramètres de l'application</h6>
+                                                    <span
+                                                        class="font-12 text-nowrap d-block text-muted text-truncate">Vous pouvez personnaliser ce modèle comme vous <br> le souhaitez</span>
+                                                    <span class="font-12 text-nowrap d-block text-muted">9h08min</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)"
+                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                                <img src="assets/images/logo-ic.png" width="55" height="55" alt="homepage" class="logo" />
+                                                <div class="w-75 d-inline-block v-middle pl-2">
+                                                    <h6 class="message-title mb-0 mt-1">le Directeur commercial</h6> <span
+                                                        class="font-12 text-nowrap d-block text-muted">Voud avez reçu un message</span>
+                                                    <span class="font-12 text-nowrap d-block text-muted">9h02min</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link pt-3 text-center text-dark" href="javascript:void(0);">
+                                            <strong>Vérifiez toutes les notifications</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- End Notification -->
+                        <!-- ============================================================== -->
+                        <!-- create new -->
+                        <!-- ============================================================== -->
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i data-feather="settings" class="svg-icon"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Paramètres</a>
+                                
+                            </div>
+                        </li> -->
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right" style="margin-top: -0.2rem;">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item d-none d-md-block">
+                            <a class="nav-link" href="javascript:void(0)">
+                                <form>
+                                    <div class="customize-input">
+                                        <input class="form-control custom-shadow custom-radius border-0 bg-white"
+                                            type="search" placeholder="Recherchez" aria-label="Search">
+                                        <i class="form-control-icon" data-feather="search"></i>
+                                    </div>
+                                </form>
+                            </a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/avatar.png" alt="user" class="rounded-circle"
+                                    width="40">
+                                <span class="ml-2 d-none d-lg-inline-block"><span>Akwaba,</span> <span
+                                        class="text-dark">l'Administration des ventes</span> <i data-feather="chevron-down"
+                                        class="svg-icon"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <a class="dropdown-item" href="index.html"><i data-feather="user"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Mon profil</a>
+                                <a class="dropdown-item" href="sentmess.html"><i data-feather="mail"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Boîte de réception</a>
+                                <a class="dropdown-item" href="connexion.html"><i data-feather="power"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                        Se déconnecter
+                                </a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item"> <a class="sidebar-link" href="index.html"
+                                aria-expanded="false"><img src="assets/images/icons/home.png" width="40" height="40" alt=""><span
+                                    class="hide-menu">Accueil</span></a></li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/ticket.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Tickets </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="ajouterdestickets.html" class="sidebar-link"><span
+                                            class="hide-menu"> Ajouter
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="mestickets.html" class="sidebar-link"><span
+                                            class="hide-menu"> Mes tickets
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="listedestickets.html" class="sidebar-link"><span
+                                            class="hide-menu"> Liste
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/product.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Produits </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="ajouterproduits.html" class="sidebar-link"><span
+                                        class="hide-menu">  Ajouter
+                                    </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="listedesproduits.html" class="sidebar-link"><span
+                                        class="hide-menu">  Liste
+                                    </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/orders.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Commandes </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="nouvellecommande.html" class="sidebar-link"><span
+                                        class="hide-menu"> Nouvelle Commande
+                                    </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="commandeencour.html" class="sidebar-link"><span
+                                        class="hide-menu">  En cours
+                                    </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="commandeparzone.html" class="sidebar-link"><span
+                                    class="hide-menu"> Achevées
+                                    </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="listecommande.html" class="sidebar-link"><span
+                                        class="hide-menu">  Liste
+                                    </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/activity.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Activités </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="creertaches.html" class="sidebar-link"><span
+                                        class="hide-menu"> Gestion des <br>tâches
+                                    </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="creeresp.html" class="sidebar-link"><span
+                                        class="hide-menu">  Créaction <br>d'espace de <br>travail 
+                                    </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            aria-expanded="false"><img src="assets/images/icons/sell.png" width="40" height="40" alt=""><span
+                                class="hide-menu ml-1">Ventes </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            <li class="sidebar-item"><a href="tableaudesventes.html" class="sidebar-link"><span
+                                    class="hide-menu"> Tableau
+                                </span></a>
+                            </li>
+                            <li class="sidebar-item"><a href="listedesventes.html" class="sidebar-link"><span
+                                    class="hide-menu"> Liste
+                                </span></a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            aria-expanded="false"><img src="assets/images/icons/depot.png" width="40" height="40" alt=""><span
+                                class="hide-menu ml-1">Dépôt </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            <li class="sidebar-item"><a href="ajouterdepot.html" class="sidebar-link"><span
+                                    class="hide-menu"> Ajouter
+                                </span></a>
+                            </li>
+                            <li class="sidebar-item"><a href="listedepot.html" class="sidebar-link"><span
+                                    class="hide-menu"> Liste
+                                </span></a>
+                            </li>
+                            <li class="sidebar-item"><a href="listemouvdepot.html" class="sidebar-link"><span
+                                    class="hide-menu"> Liste des mouvements <br>de stock
+                                </span></a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            aria-expanded="false"><img src="assets/images/icons/contrat.png" width="40" height="40" alt=""><span
+                                class="hide-menu ml-1">Contrats </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            <li class="sidebar-item"><a href="listedescontrats.html" class="sidebar-link"><span
+                                    class="hide-menu"> Liste
+                                </span></a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/facture.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Factures </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="nouvellefacture.html" class="sidebar-link"><span
+                                        class="hide-menu"> Nouvelle facture
+                                    </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="listedesfactures.html" class="sidebar-link"><span
+                                        class="hide-menu"> Liste
+                                    </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            aria-expanded="false"><img src="assets/images/icons/inventaire.png" width="40" height="40" alt=""><span
+                                class="hide-menu ml-1">Inventaire </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            <li class="sidebar-item"><a href="ajouterinventaire.html" class="sidebar-link"><span
+                                    class="hide-menu"> Ajouter
+                                </span></a>
+                            </li>
+                            <li class="sidebar-item"><a href="listeinventaire.html" class="sidebar-link"><span
+                                    class="hide-menu"> Liste
+                                </span></a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            aria-expanded="false"><img src="assets/images/icons/client.png" width="40" height="40" alt=""><span
+                                class="hide-menu ml-1">Clients </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            <li class="sidebar-item"><a href="voirclient.html" class="sidebar-link"><span
+                                    class="hide-menu"> Voir
+                                </span></a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            aria-expanded="false"><img src="assets/images/icons/fournisseur.png" width="40" height="40" alt=""><span
+                                class="hide-menu ml-1">Fournisseurs </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            <li class="sidebar-item"><a href="ajouterfournisseurs.html" class="sidebar-link"><span
+                                    class="hide-menu"> Ajouter
+                                </span></a>
+                            </li>
+                            <li class="sidebar-item"><a href="voirfournisseurs.html" class="sidebar-link"><span
+                                    class="hide-menu"> Liste
+                                </span></a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                            aria-expanded="false"><img src="assets/images/icons/commerciaux.png" width="40" height="40" alt=""><span
+                                class="hide-menu ml-1">Commerciaux </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            <li class="sidebar-item"><a href="ajoutercommerciaux.html" class="sidebar-link"><span
+                                    class="hide-menu"> Ajouter
+                                </span></a>
+                            </li>
+                            <li class="sidebar-item"><a href="voircommerciaux.html" class="sidebar-link"><span
+                                    class="hide-menu"> Liste
+                                </span></a>
+                            </li>
+                        </ul>
+                        </li>
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/mobile.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Téléphone  </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="telephone.html" class="sidebar-link"><span
+                                            class="hide-menu">Redirection d'appel
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu text-center">Boîte de messagerie</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/mailbox.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Mail  </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="newmess.html" class="sidebar-link"><span
+                                                class="hide-menu"> Nouveau mail
+                                            </span></a>
+                                    </li>
+                                    <li class="sidebar-item"><a href="sentmess.html" class="sidebar-link"><span
+                                                class="hide-menu"> Mail envoyé   
+                                            </span></a>
+                                    </li>
+                                    <li class="sidebar-item"><a href="receimess.html" class="sidebar-link"><span
+                                                class="hide-menu"> Mail reçu  
+                                            </span></a>
+                                    </li>
+                                    <li class="sidebar-item"><a href="delmess.html" class="sidebar-link"><span
+                                        class="hide-menu"> Mail supprimé   
+                                    </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><img src="assets/images/icons/sms.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">SMS  </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="newmessSMS.html" class="sidebar-link"><span
+                                            class="hide-menu"> Nouveau sms
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="sentmessSMS.html" class="sidebar-link"><span
+                                            class="hide-menu"> sms envoyé   
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="receimessSMS.html" class="sidebar-link"><span
+                                            class="hide-menu"> sms reçu  
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="delmessSMS.html" class="sidebar-link"><span
+                                    class="hide-menu"> sms supprimé   
+                                    </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu text-center">Profil</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="profil.html"
+                                aria-expanded="false"><img src="assets/images/icons/profil.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Voir  </span></a>
+                        </li>
+                        <!--  -->
+                        <!--  -->
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false" style="background: #fd671a; color: #fff; border-top-right-radius: 30px; border-bottom-right-radius: 30px;"><img src="assets/images/icons/agenda.png" width="40" height="40" alt=""><span
+                                    class="hide-menu ml-1">Agenda  </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="jourevent.html" class="sidebar-link"><span
+                                            class="hide-menu">Créer événement 
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="listeevent.html" class="sidebar-link"><span
+                                            class="hide-menu">Liste
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--  -->
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside> 
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 align-self-center">
+                            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Monsieur l'Administration des ventes</h3>
+                            <div class="d-flex align-items-center">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb m-0 p-0">
+                                        <li class="breadcrumb-item"><a href="index.html">Tableau de bord</a>
+                                        </li>
+                                        <li class="breadcrumb-item"><a href="jourevent.html">Créer les événements</a>
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- <div class="col-5 align-self-center">
+                            <div class="customize-input float-right">
+                                <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                                    <option selected>Aug 19</option>
+                                    <option value="1">July 19</option>
+                                    <option value="2">Jun 19</option>
+                                </select>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-lg-3 border-right pr-0">
+                                        <div class="card-body border-bottom">
+                                            <h4 class="card-title mt-2">Glissez et déposez les événements</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div id="calendar-events" class="">
+                                                        <div class="calendar-events mb-3 uk-text-capitalize" data-class="bg-info"><i
+                                                                class="fa fa-circle text-info mr-2"></i>évènement 1</div>
+                                                        <div class="calendar-events mb-3 uk-text-capitalize" data-class="bg-success"><i
+                                                                class="fa fa-circle text-success mr-2"></i> évènement 2 
+                                                        </div>
+                                                        <div class="calendar-events mb-3 uk-text-capitalize" data-class="bg-danger"><i
+                                                                class="fa fa-circle text-danger mr-2"></i>évènement 3
+                                                        </div>
+                                                        <div class="calendar-events mb-3 uk-text-capitalize" data-class="bg-warning"><i
+                                                                class="fa fa-circle text-warning mr-2"></i>évènement 4
+                                                        </div>
+                                                    </div>
+                                                    <!-- checkbox -->
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="drop-remove">
+                                                        <label class="custom-control-label" for="drop-remove">Supprimer après avoir déposé</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="card-body b-l calender-sidebar">
+                                            <div id="calendar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+           
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center text-muted">
+                All Rights Reserved by LES GRANDS MOULINS D'ABIDJAN. Designed and Developed by <a
+                    href="https://africandigitconsulting.net/">African Digit Consulting</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <!-- UIKIT js -->
+    <script src="dist/js/uikit.min.js"></script>
+    <script src="dist/js/uikit-icons.min.js"></script>
+    <!-- Uikit end -->
+    <!-- apps -->
+    <script src="dist/js/app-style-switcher.js"></script>
+    <script src="dist/js/feather.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
+    <!--This page JavaScript -->
+    <script src="assets/extra-libs/taskboard/js/jquery-ui.min.js"></script>
+    <script src="assets/libs/moment/min/moment.min.js"></script>
+    <script src="assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="dist/js/pages/calendar/cal-init.js"></script>
+    <!--  -->
+    <script src="assets/extra-libs/c3/d3.min.js"></script>
+    <script src="assets/extra-libs/c3/c3.min.js"></script>
+    <script src="assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="dist/js/pages/dashboards/dashboard1.min.js"></script>
+    <!--  -->
+</body>
+
+</html>
